@@ -1,0 +1,294 @@
+.container{
+    width:100%;
+    min-height:100vh;
+    background: linear-gradient(135deg, #153677, #4e085f);
+    padding:10px;
+}
+
+.todo-app{
+    width:100%;
+    max-width: 540px;
+    background:#fff;
+    margin:100px auto 20px;
+    padding:40px 30px 70px;
+    border-radius:10px;
+}
+
+.todo-app h2{
+    color: #002765;
+    display: flex;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.todo-app h2 img{
+    width: 30px;
+    margin-left: 10px;
+}
+
+.row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    
+    margin-bottom: 25px;
+}
+.row-modal{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+input{
+    flex:1;
+    border:none;
+    outline:none;
+    background: transparent;
+    padding: 10px;
+    font-weight:600;
+}
+
+button{
+    border: none;
+    outline: none;
+    padding:16px 50px;
+    margin-left: 130px;
+    background:#767acc;
+    color:#fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+
+}
+
+ul li{
+    list-style:none;
+    font-size:17px;
+    padding:  0px 5px 0px 40px;
+    margin-top: -18px;
+    user-select: none;
+    cursor: pointer;
+    position:relative;
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 8px; 
+}
+
+ul li::before{
+content:'';
+position: absolute;
+height: 28px;
+width:28px;
+border-radius: 50%;
+background-image:url(images/unchecked.png);
+background-position: center;
+background-size: cover;
+top:12px;
+left:8px;
+}
+
+ul li.checked{
+    color:#555;
+    text-decoration:line-through; 
+}
+
+ul li.checked::before{
+    background-image: url(images/ckecked.png);
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.delete{
+    width: 60px;
+    margin-left: 195px;
+}
+
+.logout-button{
+    border: none;
+    outline: none;
+    padding:13px 40px;
+    margin-left: 1048px;
+    margin-top: 22px;
+    background:#767acc;
+    color:#fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+
+}
+
+.input-field-button{
+    display:inline;
+}
+
+.input-field-button {
+    display: inline-block;
+    margin-top: 18px;
+    margin-bottom: -20px;
+    margin-left: 11px;
+}
+
+.edit{
+    width:29px;
+}
+
+/* .task-icons {
+    float: right; 
+    margin-left: 10px; 
+} */
+
+#editTaskModal {
+    display: none; 
+}
+
+.modal-input{
+    background-color:#edeef0;
+}
+
+.delete-task{
+    height:35px;
+    width: 53px;
+}
+
+.delete-project{
+    height:35px;
+    width: 53px;
+}
+
+
+.ion-icon {
+    font-size: 64px;
+    color: blue;
+  }
+
+
+.task-content {
+    display: flex;
+    flex: 80 20;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.project-content {
+    display: flex;
+    flex: 80 20;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.task-icons {
+    display: flex;
+    gap: 10px; 
+    align-items: center; 
+}
+
+.edit {
+    font-size: 24px; 
+    
+}
+
+ .unchecked, .checked {
+    width: 17px;
+    margin-right: 10px; 
+} 
+
+.close{
+    cursor:pointer;
+}
+
+/* Add this to your CSS */
+.task-item {
+    transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+    opacity: 1;
+}
+.task-item.deleted {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    overflow: hidden;
+}
+
+
+
+.row-project{
+   
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px; 
+}
+
+
+.card-header {
+    background: linear-gradient(135deg, #153677, #4e085f);
+    border-radius: 30px;
+    color: #fff; 
+    text-align: center; 
+    padding: 10px 0;
+    margin-bottom: 17px;
+    border-radius: 5px 5px 0 0; 
+}
+
+
+.form-label {
+    font-weight: 500;
+    font-family: sans-serif;
+}
+
+.form-control {
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    padding: 10px; 
+    margin-bottom: 10px; 
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+
+.btn-primary {
+    background-color: #f14141;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s; 
+}
+
+.btn-primary:hover {
+    background-color: #4e085f; 
+}
+
+.project {
+    background-color: #f0f0f0; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+}
+
+
+
+
+
+
+
+
