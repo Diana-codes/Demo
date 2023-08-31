@@ -2,9 +2,9 @@
 session_start();
 include('db.php');
 
-function getTasksByUserId($conn, $user_id) {
-    $stmt = $conn->prepare("SELECT * FROM tasks WHERE user_id = ?");
-    $stmt->bind_param("i", $user_id);
+function getTasksByUserId($conn, $id) {
+    $stmt = $conn->prepare("SELECT * FROM tasks WHERE project_id = ?");
+    $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();
     $tasks = $result->fetch_all(MYSQLI_ASSOC);

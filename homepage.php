@@ -2,12 +2,9 @@
 include('db.php');
 include('functions.php');
 
-if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
-    exit();
-    
-}
+$id = $_GET['ID'];
 
+// $id = $_GET['ID'];
 $user_id = $_SESSION['user_id'];
 
 
@@ -26,7 +23,7 @@ if(isset($_POST['submit'])) {
     echo '<script>alert("Welcome to Geeks for Geeks")</script>';
   }
         // Reload tasks from the database and display them
-        $tasks = getTasksByUserId($conn,$user_id);
+        $tasks = getTasksByUserId($conn,$id);
         // displayTasks($tasks);
         
 ?>
@@ -44,12 +41,6 @@ if(isset($_POST['submit'])) {
 <body>
     <div class="container-homepage">
         <div class="container">
-        <div class="input-field-button">
-    <form action="logout.php" method="post">
-        <button type="submit" name="logout_submit" class="logout-button">Logout</button>
-    </form>
-</div>
-
         <div class="todo-app">
             <h2>To-Do list<img src="images/to-do list.png"></h2>
 
@@ -83,7 +74,7 @@ if(isset($_POST['submit'])) {
             exit();
         }
     
-        $tasks = getTasksByUserId($conn, $user_id);
+        $tasks = getTasksByUserId($conn, $id);
     
         foreach ($tasks as $taskItem): 
         ?>

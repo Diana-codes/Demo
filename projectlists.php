@@ -43,6 +43,11 @@ if(isset($_POST['submit'])) {
 <body>
 
     <div class="container mt-5">
+    <div class="input-field-button">
+    <form action="logout.php" method="post">
+        <button type="submit" name="logout_submit" class="logout-button">Logout</button>
+    </form>
+</div>
     <div class="todo-app">
         <div class="row-project">
             <div class="col-md-6 offset-md-3">
@@ -72,16 +77,18 @@ if(isset($_POST['submit'])) {
         
         <div class="project-container">
     <?php
-    // Fetch projects from the database
     $projects = getProjectsByUserId($conn, $user_id);
 
     // Loop through the projects and generate HTML for each project
     foreach ($projectItem as $project) {
+        $proj_id = intval($project['project_id']);
+        // var_dump($proj_id);
         echo '<div class="project">';
-        echo '<a href="homePage.php">';
+        echo "<a href='homepage.php?ID=$proj_id'>";
         echo '<h4>' . htmlspecialchars($project['project_name']) . '</h4>';
         echo '<p>From: ' . htmlspecialchars($project['project_date_from']) . '</p>';
         echo '<p>To: ' . htmlspecialchars($project['project_date_to']) . '</p>';
+        // echo '<div class="project" data-project-id="' . $project['project_id'] . '">';
         echo '</a>';
         echo '</div>';
     }
@@ -104,6 +111,25 @@ if(isset($_POST['submit'])) {
   </div>
   </div>
 </div>
+<script>
+document.querySelectorAll('.project').forEach(function (project) {
+    project.addEventListener('click', function () {
+        var project_id = project.getAttribute('data-project_id'); 
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'get_tasks.php?project_id=' + project_id, true);
+
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                var tasks = JSON.parse(xhr.responseText);
+            }
+        };
+
+        xhr.send();
+    });
+});
+
+    </script>
    
 
     <!-- Include Bootstrap JS (optional) -->
